@@ -1,6 +1,6 @@
 # 🎨 BRender v1.5
 
-[](https://colab.research.google.com/github/cutefishaep/BRender/blob/main/BRender.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cutefishaep/BRender/blob/main/BRender.ipynb)
 
 **BRender** is a Google Colab notebook for rendering Blender projects using cloud GPUs. It supports direct file uploads and Google Drive links for both single frames and animations.
 
