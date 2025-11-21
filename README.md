@@ -1,41 +1,50 @@
-# BRender v1.0
+# 🎨 BRender v1.5
 
-<a href="https://colab.research.google.com/github/cutefishaep/BRender/blob/main/BRender.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a>
+[](https://colab.research.google.com/github/cutefishaep/BRender/blob/main/BRender.ipynb)
 
-A simple Google Colab notebook to render Blender files using cloud GPU. You can upload a single `.blend` file or a `.zip` file containing your project.
+**BRender** is a Google Colab notebook for rendering Blender projects using cloud GPUs. It supports direct file uploads and Google Drive links for both single frames and animations.
 
 ## Features
 
-* **Blender Versions:** Supports version 2.79b up to 4.5.4.
-* **File Support:** Accepts `.blend` or `.zip` files (useful if you have textures/assets).
-* **File Selector:** If you upload a zip with multiple blend files, you can choose which one to render.
-* **Rendering:** Supports Animation and Single Frame rendering.
-* **Output:** Automatically downloads the result to your computer (as a zip or image).
-* **Hardware:** Auto-configures CUDA or OptiX based on the assigned GPU.
+  * **Version Support:** Compatible with Blender versions from `2.79b` to `4.5.x`.
+  * **File Handling:** Accepts `.blend` files and `.zip` archives.
+  * **Archive Detection:** Automatically identifies `.blend` files inside uploaded zip archives.
+  * **Hardware Acceleration:** Supports **CUDA** and **OptiX** rendering pipelines.
+  * **Hybrid Rendering:** Allows simultaneous use of CPU and GPU.
+  * **Memory Optimization:** Pre-installed `libtcmalloc` for memory management.
+  * **Output Packaging:** Options to zip rendered frames before downloading.
 
 ## How to Use
 
-1.  Click the **Open in Colab** badge above.
-2.  In the first cell, set your preferences (Blender version, frame range, etc.).
-3.  Run the cell.
-4.  Upload your file when prompted.
-5.  Wait for the render to finish and the download will start automatically.
+1.  Click the **"Open in Colab"** badge above.
+2.  Adjust the settings in the **Configuration** section.
+3.  Run the main cell.
+4.  Select an input method:
+      * **Upload:** For local files.
+      * **Google Drive:** Paste a file link when prompted.
+5.  If a zip file contains multiple projects, select the target `.blend` file from the list.
+6.  Wait for the process to finish. The output downloads automatically.
 
-## Settings
+## Configuration Parameters
 
-| Parameter | Function |
-| :--- | :--- |
-| `blender_version` | Version of Blender to use. |
-| `animation` | Enable for animation, disable for single frame. |
-| `start_frame` / `end_frame` | Frame range to render. |
-| `zip_files` | If enabled, downloads output as a zip file. |
-| `gpu_enabled` | Uses GPU for rendering. |
+| Parameter | Options | Description |
+| :--- | :--- | :--- |
+| `upload_method` | `Upload`, `Google Drive` | Source of the project file. |
+| `renderer_type` | `CUDA`, `OptiX` | Render device API. Switches to CUDA if OptiX is unsupported. |
+| `gpu_enabled` | `True` / `False` | Enables GPU rendering. |
+| `cpu_enabled` | `True` / `False` | Adds CPU to the render device list. |
+| `animation` | `True` / `False` | Renders a specific frame range if enabled. |
+| `start_frame` | Integer | The first frame to render. |
+| `end_frame` | Integer | The last frame to render. |
+| `output_name` | String | Filename format (e.g., `render_##`). |
+| `zip_files` | `True` / `False` | Compresses output frames into a single zip file. |
 
 ## Notes
 
-* Ideally, use `.zip` if your project has external textures.
-* Render speed depends on the GPU assigned by Google Colab (usually Tesla T4).
-* The script installs `libtcmalloc` to help with memory management.
+> **External Assets:** If your project uses external textures or assets, compress the `.blend` file and the asset folders into a single `.zip` file before uploading.
+
+> **Performance:** Render speed is determined by the GPU assigned by the Google Colab session.
 
 ## Credits
-Created by **@cutefishrbx** on TikTok.
+
+Created by **[@cutefishrbx](https://www.tiktok.com/@cutefishrbx)** on TikTok.
