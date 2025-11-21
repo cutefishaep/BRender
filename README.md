@@ -21,7 +21,7 @@
 3.  Run the main cell.
 4.  Select an input method:
       * **Upload:** For local files.
-      * **Google Drive:** Paste a file link when prompted.
+      * **Google Drive:** Paste the link before run the main cell.
 5.  If a zip file contains multiple projects, select the target `.blend` file from the list.
 6.  Wait for the process to finish. The output downloads automatically.
 
